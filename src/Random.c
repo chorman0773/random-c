@@ -60,7 +60,6 @@ static uint64_t genUniqueSeed(){
 	return 31*val+time(NULL);
 }
 
-// java.ut
 static uint64_t initRandomizeSeed(uint64_t seed){
 	return (seed ^ 0x5DEECE66DuLL) & ((1uLL << 48) - 1);
 }
@@ -171,4 +170,13 @@ void Random_nextBytes(Random* rand,void* data,size_t sz){
 	     for (int rnd = Random_nextInt(rand), n = min(sz - i, 4);
 	          n-- > 0; rnd >>= 8)
 	       bytes[i++] = (uint8_t)rnd;
+}
+
+void Random_ints(Random* rand,int* out,size_t len){
+    for(int i = 0;i<len;i++)
+        out[i] = Random_nextInt(rand);
+}
+void Random_doubles(Random* rand,double* out,size_t len){
+    for(int i = 0;i<len;i++)
+        out[i] = Random_nextDouble(rand);
 }

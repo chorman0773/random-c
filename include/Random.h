@@ -68,6 +68,8 @@ double Random_nextGaussian(Random* rand);
 bool Random_nextBoolean(Random* rand);
 void Random_nextBytes(Random* rand,void* out,size_t size);
 
+void Random_ints(Random* rand,int* out,size_t len);
+void Random_doubles(Random* rand,double* out,size_t len);
 
 #ifdef __cplusplus
 };
