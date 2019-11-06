@@ -183,16 +183,28 @@ void Random_nextBytes(Random* rand,void* out,size_t size);
 /**
 * Generates len random ints as though by Random_nextInt(rand), and stores them in [out,out+len).
 * The function is not constrained to write the output values in any particular order.
-* That is, 
 * Expects: the range [out,out+len) must be a valid, continuous, and writeable range. 
 */
 void Random_ints(Random* rand,int* out,size_t len);
 /**
 * Generates len random double values as though by Random_nextDouble(rand), and stores them in [out,out+len)
-* The function is not constrained to write the output values in any particular order. That is, 
+* The function is not constrained to write the output values in any particular order.
 * Expects: the range [out,out+len) must be a valid, continuous, and writeable range. 
 */
 void Random_doubles(Random* rand,double* out,size_t len);
+
+/**
+* Generates len random ints as though by Random_nextIntb(rand,max-min)+min, and stores them in [out,out+len).
+* The function is not constrained to write the output values in any particular order.
+* Expects: the range [out,out+len) must be a valid, continuous, and writeable range. 
+*/
+void Random_intsb(Random* rand,int* out,size_t len,int min,int max);
+/**
+* Generates len random double values in [min,max) as though by Random_nextDouble(rand)*(max-min)+min, and stores them in [out,out+len)
+* The function is not constrained to write the output values in any particular order.
+* Expects: the range [out,out+len) must be a valid, continuous, and writeable range. 
+*/
+void Random_doublesb(Random* rand,double* out,size_t len,double min,double max);
 
 #ifdef __cplusplus
 };

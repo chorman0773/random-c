@@ -173,10 +173,22 @@ void Random_nextBytes(Random* rand,void* data,size_t sz){
 }
 
 void Random_ints(Random* rand,int* out,size_t len){
-    for(int i = 0;i<len;i++)
+    for(size_t i = 0;i<len;i++)
         out[i] = Random_nextInt(rand);
 }
+
 void Random_doubles(Random* rand,double* out,size_t len){
-    for(int i = 0;i<len;i++)
+    for(size_t i = 0;i<len;i++)
         out[i] = Random_nextDouble(rand);
 }
+
+void Random_intsb(Random* rand,int* out,size_t len,int min,int max){
+    for(size_t i = 0;i<len;i++)
+        out[i] = Random_nextIntb(rand,max-min)+min;
+}
+
+void Random_doublesb(Random* rand,double* out,size_t len,double min,double max){
+    for(size_t i = 0;i<len;i++)
+        out[i] = Random_nextDouble(rand)*(max-min)+min;
+}
+
