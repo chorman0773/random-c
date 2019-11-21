@@ -206,6 +206,8 @@ void Random_intsb(Random* rand,int* out,size_t len,int min,int max);
 */
 void Random_doublesb(Random* rand,double* out,size_t len,double min,double max);
 
+Random* getThreadLocalRandom();
+
 #ifdef __cplusplus
 };
 #endif

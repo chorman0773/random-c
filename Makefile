@@ -1,7 +1,7 @@
 
 
 
-OBJECTS = out/Random.o
+OBJECTS = out/Random.o out/ThreadLocalRandom.o
 
 OUTPUT = librandom.a
 
@@ -9,7 +9,7 @@ CDIALECT = c11
 
 INCLUDES = ./include
 
-ALL_CFLAGS = $(CFLAGS) $(foreach include,$(INCLUDES),-I$(include)) -fPIC
+ALL_CFLAGS = $(CFLAGS) $(foreach include,$(INCLUDES),-I$(include)) -fPIC -std=$(CDIALECT)
 
 all: $(OUTPUT)
 

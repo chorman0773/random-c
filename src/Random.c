@@ -14,12 +14,12 @@
 
 #define min(a,b) ((a)<(b)?(a):(b))
 
-#ifdef TIGAME_MULTITHREAD_SUPPORT
+#ifndef __STDC_NO_THREADS__
 
 #include <threads.h>
 #define multithread_support(expn) expn
 #else
-#define multithread_support(expn)
+#define multithread_support(expn) 
 #endif
 
 struct Random{
@@ -38,12 +38,11 @@ struct Random{
 // Pursuant to that documentation, this code comes with the following warnings
 //
 /// Thread-safety
-// If this file is compiled with the macro TIGAME_MULTITHREAD_SUPPORT,
+// If this file is compiled without the macro __STDC_NO_THREADS__,
 // then instances of Random are thread safe. However, use of
 // a single instance of Random across multiple threads may
 // encounter contention, and therefore is disabled.
-// If thread-safety is not required, the macro can be left undefined,
-// and use of Random will be generally faster.
+//
 //
 /// Security
 // This Random Number Generator is NOT Cryptographically Strong and should NOT be used
