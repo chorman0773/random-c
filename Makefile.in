@@ -8,7 +8,7 @@ OUTPUT = $(OUTDIR)/librandom.a
 
 CDIALECT = c11
 
-INCLUDES = ./include
+INCLUDES = $(SRCDIR)/include
 
 ALL_CFLAGS = @CFLAGS@ $(foreach include,$(INCLUDES),-I$(include)) -fPIC -std=$(CDIALECT)
 
@@ -21,7 +21,7 @@ $(OUTPUT): $(OBJECTS)
 $(OUTDIR)/out/:
 	mkdir $(OUTDIR)/out/	
 
-$(OUTDIR)/%.o: $(SRCDIR)/src/%.c | out/
+$(OUTDIR)/out/%.o: $(SRCDIR)/src/%.c | out/
 	$(CC) $(ALL_CFLAGS) -c -o $@ $^
 
 clean:
