@@ -1,0 +1,1 @@
+add_library(random src/Random.c src/ThreadLocalRandom.c include/Random.h)
